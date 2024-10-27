@@ -76,7 +76,7 @@ submit.addEventListener("click", function (event) {
 
   error.textContent = "";
   taskInput.value = "";
-  /// taskInput.classList.remove("error")
+  taskInput.classList.remove("error");
 
   renderTasks();
 });
