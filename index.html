@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+    <div class="container">
+      <h1>To-Do List</h1>
+      <form id="todo">
+        <div class="form">
+          <div class="t"><input type="text" id="new-task" placeholder="Enter new task" /></div>
+          <button class="submit" id="submit" type="submit">+</button>
+        </div>
+      </form>
+
+      <div class="error-div"><p id="error"></p></div>
+
+
+      <ul id="task-list"></ul>
+
+      <div class="filters">
+          <button class="menu" id="all">All Tasks</button>
+          <button class="menu" id="active">Active</button>
+          <button class="menu" id="completed">Completed</button>
+      </div>
+
+     <p id="counter"></p>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>
