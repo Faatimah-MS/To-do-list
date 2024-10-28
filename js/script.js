@@ -9,17 +9,17 @@ const active = document.getElementById("active");
 
 let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
-renderTasks("all");
+updateTasks("all");
 
-function renderTasks(filter = "all") {
+function updateTasks(visibility = "all") {
   taskList.innerHTML = "";
 
   let visibleTasks = [];
-  if (filter === "all") {
+  if (visibility === "all") {
     visibleTasks = tasks;
   }
 
-  if (filter === "active") {
+  if (visibility === "active") {
     tasks.forEach((task, _) => {
       if (!task.completed) {
         visibleTasks.push(task);
@@ -27,7 +27,7 @@ function renderTasks(filter = "all") {
     });
   }
 
-  if (filter === "completed") {
+  if (visibility === "completed") {
     tasks.forEach((task, _) => {
       if (task.completed) {
         visibleTasks.push(task);
@@ -78,7 +78,7 @@ submit.addEventListener("click", function (event) {
   taskInput.value = "";
   taskInput.classList.remove("error");
 
-  renderTasks();
+  updateTasks();
 });
 
 taskList.addEventListener("click", function (event) {
@@ -86,14 +86,14 @@ taskList.addEventListener("click", function (event) {
         const index = event.target.getAttribute("data-index");
         tasks.splice(index, 1);
         localStorage.setItem("tasks", JSON.stringify(tasks));
-        renderTasks();
+        updateTasks();
     }
 
   if (event.target.classList.contains("cbox-completed")) {
     const index = event.target.getAttribute("data-index");
     tasks[index].completed = !tasks[index].completed;
     localStorage.setItem("tasks", JSON.stringify(tasks));
-    renderTasks();
+    updateTasks();
   }
 });
 
@@ -109,14 +109,14 @@ function counter() {
 }
 
 all.addEventListener("click", function () {
-  renderTasks("all");
+  updateTasks("all");
 });
 
 active.addEventListener("click", function () {
-  renderTasks("active");
+  updateTasks("active");
 });
 
 completed.addEventListener("click", function () {
-   renderTasks("completed");
+   updateTasks("completed");
  });
 
